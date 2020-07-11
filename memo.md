@@ -72,7 +72,7 @@ https://blog.shimar.me/2016/11/18/redis-delete-data
 
 nodeのredisモジュールはherokuの導入例を見るとredisとioredisがあるようだがioredisの評判がよさそうなのでそちらを入れる。
 
-https://devcenter.heroku.com/articles/heroku-redis#connecting-in-node-js
+https://devcenter.heroku.com/articles/heroku-redis#connecting-in-node-js  
 https://github.com/luin/ioredis
 
 ```
