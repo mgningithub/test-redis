@@ -35,7 +35,7 @@ var redis = new Redis(process.env.REDIS_URL);
     // All arguments are passed directly to the redis server:
     redis.set("key", 100, "EX", 10); // set's key to value 100 and expires it after 10 seconds
 
-    redis.flushdb();
+    redis.flushdb(); // delete all keys
 
     redis.disconnect();
 })();

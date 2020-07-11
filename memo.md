@@ -71,6 +71,7 @@ https://blog.shimar.me/2016/11/18/redis-delete-data
 #### nodeからRedis接続する
 
 nodeのredisモジュールはherokuの導入例を見るとredisとioredisがあるようだがioredisの評判がよさそうなのでそちらを入れる。
+
 https://devcenter.heroku.com/articles/heroku-redis#connecting-in-node-js
 https://github.com/luin/ioredis
 
@@ -144,6 +145,14 @@ git push -u origin master
 https://blog.eiel.info/blog/2014/08/26/remember-redis/
 
 ```
+var Redis = require('ioredis');
+var redis = new Redis(process.env.REDIS_URL);
+
+(async () => {
+    const redis = new Redis();
+    const pong = await redis.ping();
+    console.log(pong); // => PONG
+
     // ioredis supports all Redis commands:
     redis.set("foo", "bar"); // returns promise which resolves to string, "OK"
 
@@ -173,7 +182,8 @@ https://blog.eiel.info/blog/2014/08/26/remember-redis/
     // All arguments are passed directly to the redis server:
     redis.set("key", 100, "EX", 10); // set's key to value 100 and expires it after 10 seconds
 
-    redis.flushdb();
+    redis.flushdb(); // delete all keys
 
     redis.disconnect();
+})();
   ```
